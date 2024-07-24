@@ -6,6 +6,6 @@ CREATE TABLE BOOKS(book _id number (10) Constraint books_book_id_pk PRIMARY KEY,
                     publication_date DATE
                     )
 
-CREATE TABLE AUTHORS(author_id number (10) CONSTARAINT AUTHORS_AUTHOR_ID_PK PRIMARY KEY,
+CREATE TABLE Authors(author_id number (10) CONSTARAINT AUTHORS_AUTHOR_ID_PK PRIMARY KEY,
                     author_name varchar (50)
                     )
