@@ -15,11 +15,12 @@ CREATE TABLE Customers(customer_id number (10) CONSTRAINT customers_customer_id_
                         address TEXT
                         );
 
-CREATE TABLE Orders(order_id number (10) CONSTRAINT Orders_order_id_pk PRIMARY KEY,
-                    customer_id NUMBER (10) FOREIGN KEY REFERENCES CUSTOMERS(Customer_id),
-                    order_date DATE
-                    );
+-- CREATE TABLE Orders(order_id number (10) CONSTRAINT Orders_order_id_pk PRIMARY KEY,
+--                     customer_id NUMBER (10) FOREIGN KEY REFERENCES CUSTOMERS(Customer_id),
+--                     order_date DATE
+--                     );
 
+CREATE TABLE Orders(order_id INT, customer_id INT, FOREIGN KEY (customer_id) REFERENCES Customers(customer_id))
 CREATE TABLE Order_Details(
                     order_detail_id(10) CONSTRAINT Order_Details_order_details_id_pk PRIMARY KEY,
                     order_id NUMBER (10) REFERENCES ORDERS(order_id)
