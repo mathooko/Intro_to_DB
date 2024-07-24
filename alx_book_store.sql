@@ -10,9 +10,9 @@ CREATE TABLE Authors(author_id number (10) CONSTARAINT AUTHORS_AUTHOR_ID_PK PRIM
                     author_name varchar (50)
                     );
 CREATE TABLE Customers(customer_id number (10) CONSTRAINT customers_customer_id_pk PRIMARY KEY,
-                        CUSTOMER_NAME VARCHAR (215),
-                        EMAIL VARCHAR(215),
-                        ADDRESS TEXT
+                        customer_name VARCHAR (215),
+                        email VARCHAR(215),
+                        address TEXT
                         );
 
 CREATE TABLE Orders(order_id number (10) CONSTRAINT Orders_order_id_pk PRIMARY KEY,
