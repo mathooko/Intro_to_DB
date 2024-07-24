@@ -1,6 +1,6 @@
-CREATE TABLE BOOKS(book _id number (10) Constraint books_book_id_pk PRIMARY KEY,
+CREATE TABLE Books(book _id number (10) Constraint books_book_id_pk PRIMARY KEY,
                     title varchar (130),
-                    author_id NUMBER(10),
+                    author_id NUMBER(10) foreign key references Authors(author_id),
                     price DOUBLE(9,2),
                     publication_date DATE
                     )
@@ -9,19 +9,27 @@ CREATE TABLE Authors(author_id number (10) CONSTARAINT AUTHORS_AUTHOR_ID_PK PRIM
                     author_name varchar (50)
                     );
 CREATE TABLE Customers(customer_id number (10) CONSTRAINT customers_customer_id_pk PRIMARY KEY,
-                        CUSTOMER_NAME VARCHAR (215),
-                        EMAIL VARCHAR(215)
-                        ADDRESS TEXT
+                        customer_name VARCHAR(215),
+                        email VARCHAR(215),
+                        address TEXT
                         );
 
-CREATE TABLE Orders(order_id number (10) CONSTRAINT Orders_order_id_pk PRIMARY KEY,
-                    customer id 
-                    order DATE
-                    );
+-- CREATE TABLE Orders(order_id number (10) CONSTRAINT Orders_order_id_pk PRIMARY KEY,
+--                     customer_id NUMBER (10) FOREIGN KEY REFERENCES CUSTOMERS(Customer_id),
+--                     order_date DATE
+--                     );
 
-CREATE TABLE Order_Details(
-                    order_detail_id(10) CONSTRAINT Order_Details_order_details_id_pk PRIMARY KEY,
-                    order_id 
-                    book_id
-                    quantity NUMBER (10,10)
-                    );
+CREATE TABLE Orders(order_id INT, 
+                    customer_id INT, 
+                    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id));
+-- CREATE TABLE Order_Details(
+--                     order_detail_id(10) CONSTRAINT Order_Details_order_details_id_pk PRIMARY KEY,
+--                     order_id NUMBER (10) REFERENCES ORDERS(order_id)
+--                     book_id NUMBER (10) REFERENCES BOOK(book_id)
+--                     quantity NUMBER (10,10)
+--                     );
+CREATE TABLE Order_Details(book_id INT,
+                          quantity DOUBLE,
+                          FOREIGN KEY (order_id) REFERENCES Orders(order_id), 
+                          FOREIGN KEY (book_id) REFERENCES Books(book_id)
+);
