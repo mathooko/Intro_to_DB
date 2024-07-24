@@ -1,3 +1,4 @@
+CREATE DATABASE IF NOT EXISTS alx_book_store;
 CREATE TABLE BOOKS(book _id number (10) Constraint books_book_id_pk PRIMARY KEY,
                     title varchar (130),
                     author_id NUMBER(10),
