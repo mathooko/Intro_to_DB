@@ -16,13 +16,13 @@ CREATE TABLE Customers(customer_id number (10) CONSTRAINT customers_customer_id_
                         );
 
 CREATE TABLE Orders(order_id number (10) CONSTRAINT Orders_order_id_pk PRIMARY KEY,
-                    customer_id (10) FOREIGN KEY REFERENCES CUSTOMERS(Customer_id),
+                    customer_id NUMBER (10) FOREIGN KEY REFERENCES CUSTOMERS(Customer_id),
                     order_date DATE
                     );
 
 CREATE TABLE Order_Details(
                     order_detail_id(10) CONSTRAINT Order_Details_order_details_id_pk PRIMARY KEY,
-                    order_id NUMBER (10) REFERENCING ORDERS(order_id)
+                    order_id NUMBER (10) REFERENCES ORDERS(order_id)
                     book_id NUMBER (10) REFERENCES BOOK(book_id)
                     quantity NUMBER (10,10)
                     );
